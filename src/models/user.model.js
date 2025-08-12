@@ -63,7 +63,7 @@ userSchema.methods.checkPassword = async function (password) {
 
 //CREATE JWT TOKEN
 userSchema.methods.generateAccessToken = async function () {
-  jwt.sign({
+  return await jwt.sign({
     _id : this._id,
     email : this.email,
     username : this.username,
@@ -77,7 +77,7 @@ userSchema.methods.generateAccessToken = async function () {
 )
 }
 userSchema.methods.generateRefreshToken = async function () {
-  jwt.sign({
+  return await jwt.sign({
     _id : this._id,
   },
   process.env.REFRESH_TOKEN_SECRET,

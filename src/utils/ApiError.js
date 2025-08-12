@@ -11,4 +11,4 @@ class ApiErroe extends Error {
     this.errors = errors;
   }
 }
-export { ApiErroe };
+export { ApiErroe }; // whenever we rexport the class it export in {} bracket
