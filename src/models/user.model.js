@@ -52,7 +52,7 @@ const userSchema = new mongoose.Schema(
 // add hook to encrypt password before store the database
 userSchema.pre("save", async function (next) {
   if (!this.isModified("password")) return next();
-  this.password = bcrypt.hash(this.password, 10);
+  this.password = await bcrypt.hash(this.password, 10);
   next();
 });
 
@@ -63,7 +63,7 @@ userSchema.methods.checkPassword = async function (password) {
 
 //CREATE JWT TOKEN
 userSchema.methods.generateAccessToken = async function () {
-  return await jwt.sign({
+  return  jwt.sign({
     _id : this._id,
     email : this.email,
     username : this.username,

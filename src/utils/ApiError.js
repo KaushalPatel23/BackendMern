@@ -1,4 +1,4 @@
-class ApiErroe extends Error {
+class ApiError extends Error {
   constructor(
     statuscode,
     message = "something went wrong",
@@ -11,4 +11,4 @@ class ApiErroe extends Error {
     this.errors = errors;
   }
 }
-export { ApiErroe }; // whenever we rexport the class it export in {} bracket
+export { ApiError }; // whenever we rexport in {} means during import we can able to import with same in {}
