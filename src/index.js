@@ -1,6 +1,6 @@
 import dotenv from "dotenv";
 import connectDB from "./db/database.js";
-dotenv.config({ path: "./env" });
+dotenv.config({ path: "./.env" });
 import { app } from "./app.js";
 
 connectDB() // asinc function allways return promise
